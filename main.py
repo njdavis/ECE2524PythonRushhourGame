@@ -2,8 +2,12 @@
 #created by Noah and Pia
 
 import board
-import difficulty
 
-pos = difficulty.decideDiff() 
+youWin = False
+
+pos = board.decideDiff() 
 
 board.printBoard(pos) 
+
+if youWin ==  True:
+    print ("You Win")
