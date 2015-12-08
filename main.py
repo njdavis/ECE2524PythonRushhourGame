@@ -2,8 +2,14 @@
 
 import board
 
-#carPositionListsitionList
+#Initialize the gameboard with blank spaces
 pos  = ['  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ']
+
+print ("Do you wish to play easy, medium, or hard?")
+print ("Type 'easy', 'medium', or 'hard' and press enter")
+difficulty = input()
+
+print ( difficulty)
 
 #car 0
 pos[15] = '00'
