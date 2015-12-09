@@ -1,82 +1,111 @@
 #this documents containing functions relating to the movement of game pieces
 #created by Noah Davis
 
-
+#this function translates user inputs into machine readable variables
 def readUser(ans):
-    if ans == 'Aa'
+    if ans == 'Aa':
         return 0
-    elif ans == 'Ab'
+    elif ans == 'Ab':
         return 1
-    elif ans == 'Ac'
+    elif ans == 'Ac':
         return 2
-    elif ans == 'Ad'
+    elif ans == 'Ad':
         return 3
-    elif ans == 'Ae'
+    elif ans == 'Ae':
         return 4
-    elif ans == 'Af'
+    elif ans == 'Af':
         return 5
-    elif ans == 'Ba'
+    elif ans == 'Ba':
         return 6
-    elif ans == 'Bb'
+    elif ans == 'Bb':
         return 7
-    elif ans == 'Bc'
+    elif ans == 'Bc':
         return 8
-    elif ans == 'Bd'
+    elif ans == 'Bd':
         return 9
-    elif ans == 'Be'
+    elif ans == 'Be':
         return 10
-    elif ans == 'Bf'
+    elif ans == 'Bf':
         return 11
-    elif ans == 'Ca'
+    elif ans == 'Ca':
         return 12
-    elif ans == 'Cb'
+    elif ans == 'Cb':
         return 13
-    elif ans == 'Cc'
+    elif ans == 'Cc':
         return 14
-    elif ans == 'Cd'
+    elif ans == 'Cd':
         return 15
-    elif ans == 'Ce'
+    elif ans == 'Ce':
         return 16
-    elif ans == 'Cf'
+    elif ans == 'Cf':
         return 17
-    elif ans == 'Da'
+    elif ans == 'Da':
         return 18
-    elif ans == 'Db'
+    elif ans == 'Db':
         return 19
-    elif ans == 'Dc'
+    elif ans == 'Dc':
         return 20
-    elif ans == 'Dd'
+    elif ans == 'Dd':
         return 21
-    elif ans == 'De'
+    elif ans == 'De':
         return 22
-    elif ans == 'Df'
+    elif ans == 'Df':
         return 23
-    elif ans == 'Ea'
+    elif ans == 'Ea':
         return 24
-    elif ans == 'Eb'
+    elif ans == 'Eb':
         return 25
-    elif ans == 'Ec'
+    elif ans == 'Ec':
         return 26
-    elif ans == 'Ed'
+    elif ans == 'Ed':
         return 27
-    elif ans == 'Ee'
+    elif ans == 'Ee':
         return 28
-    elif ans == 'Ef'
+    elif ans == 'Ef':
         return 29
-    elif ans == 'Fa'
+    elif ans == 'Fa':
         return 30
-    elif ans == 'Fb'
+    elif ans == 'Fb':
         return 31
-    elif ans == 'Fc'
+    elif ans == 'Fc':
         return 32
-    elif ans == 'Fd'
+    elif ans == 'Fd':
         return 33
-    elif ans == 'Fe'
+    elif ans == 'Fe':
         return 34
-    elif ans == 'Ff'
+    elif ans == 'Ff':
         return 35
-    else 
+    else: 
         print ("You enterd the wrong command")
         return -1
+
+#this function finds the size of the cars
+def posDistance(piece, pos):    
+    isBegin = True
+    
+    #scans the list for car pieces of the same type
+    for i in range(0, 35):
+        if piece == pos[i]:
+            #end is only tracked once
+            if isBegin == True:
+                isBegin = False
+                begin = i
+            end = i+1
+    
+    #finds the distance between the beginning of the car and end
+    #finds how large the car is
+    distance = end - begin
+    
+    return distance
+    
+#this function finds the direction of the cars
+def carDirection(piece, pos):
+    distance = posDistance(piece, pos)
+
+    if distance < 6:
+        return 'Horizontal'
+    else :
+        return 'Vertical'
+
 
 
