@@ -24,7 +24,7 @@ def printBoard(pos):
 #This function decides the difficulty of the game
 def decideDiff():
     #Initialize the gameboard with blank spaces
-    pos  = ['  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ',' ','  ','  ','  ','  ','  ','  ','  ']
+    pos  = ['  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ']
 
     print ("Do you wish to play easy, medium, or hard?")
     print ("Type 'easy', 'medium', or 'hard' and press enter")
@@ -51,21 +51,38 @@ def decideDiff():
         pos[33] = '33'
     elif difficulty == 'medium':
         #car 0
-        pos[15] = '00'
-        pos[16] = '00'
-        
+        pos[12] = '00'
+        pos[13] = '00'
         #car 1
-        pos[5] = '11'
-        pos[11] = '11'
-        pos[17] = '11'
-        
+        pos[1] = '11'
+        pos[2] = '11'
         #car 2
-        pos[28] = '22'
-        pos[29] = '22'
-        
+        pos[0] = '22'
+        pos[6] = '22'
         #car 3 
-        pos[27] = '33'
-        pos[33] = '33'
+        pos[14] = '33'
+        pos[8] = '33'
+        #car 4
+        pos[19] = '44'
+        pos[20] = '44'
+        pos[21] = '44'
+        #car 5
+        pos[24] = '55'
+        pos[25] = '55'
+        pos[26] = '55'
+        #car6
+        pos[27] = '66'
+        pos[33] = '66'
+        #car7
+        pos[22] = '77'
+        pos[16] = '77'
+        #car8
+        pos[4] = '88'
+        pos[10] = '88'
+        #car9
+        pos[11] = '99'
+        pos[17] = '99'
+        pos[23] = '99'
     else:
         #car 0
         pos[15] = '00'
