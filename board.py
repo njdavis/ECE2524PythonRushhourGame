@@ -34,21 +34,48 @@ def decideDiff():
     
     if difficulty  == 'hard':
         #car 0
-        pos[15] = '00'
-        pos[16] = '00'
-        
+        pos[12] = '00'
+        pos[13] = '00'
         #car 1
-        pos[5] = '11'
-        pos[11] = '11'
-        pos[17] = '11'
-        
+        pos[1] = '11'
+        pos[2] = '11'
         #car 2
-        pos[28] = '22'
-        pos[29] = '22'
-        
+        pos[6] = '22'
+        pos[7] = '22'
+        pos[8] = '22'
         #car 3 
-        pos[27] = '33'
-        pos[33] = '33'
+        pos[18] = '33'
+        pos[29] = '33'
+        #car 4
+        pos[30] = '44'
+        pos[24] = '44'
+        #car 5
+        pos[32] = '55'
+        pos[26] = '55'
+        #car 6
+        pos[14] = '66'
+        pos[20] = '66'
+        #car 7
+        pos[3] = '77'
+        pos[9] = '77'
+        pos[15] = '77'
+        #car 8
+        pos[4] = '88'
+        pos[5] = '88'
+        #car 9 
+        pos[10] = '99'
+        pos[16] = '99'
+        pos[22] = '99'
+        #car **
+        pos[11] = '**'
+        pos[17] = '**'
+        #car ^^
+        pos[23] = '^^'
+        pos[29] = '^^'
+        #car %%
+        pos[34] = '%%'
+        pos[35] = '%%'
+
     elif difficulty == 'medium':
         #car 0
         pos[12] = '00'
