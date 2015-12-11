@@ -2,23 +2,22 @@
 #created by Noah Davis & Pia Banerjee
 
 #this function translates user inputs into machine readable variables
-def move(endpos, piece, pos, direction)
-
+def move(endpos, piece, pos, direction):
         distance = posDistance(piece, pos)
         endEndPos = endpos + distance
         #put old values into grid
         for i in range (0,35):
                 if pos[i] == piece:
                         pos[i]= '  '
-
         #add new values into grid
-        if direction == 'vertical':
-                for i range (endpos, endEndPos, 6):
+        if (direction == 'vertical'):
+                for i in range (endpos, endEndPos, 6):
+                    pos[i] = piece
         elif direction == 'horizontal':
-                for i range (endpos, endEndPos):
+                for j in range (endpos, endEndPos):
+                    pos[j] = piece
         else:
-                print "Something is wrong"
-
+                print ("Something is wrong")
         return pos
 
 def readUser(ans):
@@ -120,36 +119,46 @@ def posDistance(piece, pos):
 #this function finds the direction of the cars
 def carDirection(piece, pos):
     distance = posDistance(piece, pos)
-
     if distance < 6:
-        return 'Horizontal'
+        return 'horizontal'
     else :
-        return 'Vertical'
-
+        return 'vertical'
 
 #checking position for moving piece into 
-
-def CorrectMove (endpos, piece, pos)
-        move position = cars.readUser(endpos)
-
-        for i in range (0,35):
-                if piece == pos[i]:
-                        startpos = i
-
-        direction = board.direction (pos[startpos])
-
-        if direction == 'horizontal':
-                for i in range (startpos, endpos):
-                        if (pos[i] != ' ') || (pos[i] != piece:
-                                print "Can't move piece here!"
-                        else:
-                                output = move(endpos, piece, pos,direction)
-        elif direction == 'vertical':
-                for i in range (startpos, endpos,6):
-                        if (pos[i] != ' ') || (pos[i] != piece:
-                                print "Can't move piece here!"
-                        else:
-                                output= move(endpos, piece, pos, direction)
+def correctMove (endpos, piece, pos):
+    carLength = 0
+    canMove = True
+    
+    for i in range (0,35):
+        if piece == pos[i]:
+            startpos = i
+            carLength = carLength +1
+    direction = carDirection (piece, pos)
+    if direction == 'horizontal':
+        if endpos > (startpos+6):
+            print ("Piece can only move horizontal")
+            canMove = False
+    else:
+        if (endpos%6) != (startpos%6):
+            print ("Piece can only move vertical")
+            canMove = False
+    if direction == 'horizontal':
+        for i in range (startpos,(endpos+carLength) ):
+            if (pos[i] == '  ') or (pos[i] == piece):
+                canMove = canMove
+            else:
+                canMove = False
+    elif direction == 'vertical':
+        for i in range (startpos,(endpos+(carLength*6)), 6):
+            if (pos[i] == '  ') or (pos[i] == piece):
+                canMove = canMove
+            else:
+                canMove = False
+    if canMove == True:
+        output = move(endpos, piece, pos, direction)
         return output
+    else:
+        print ("Piece cannot move here!")
+        return pos
 
 
