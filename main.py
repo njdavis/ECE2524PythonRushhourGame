@@ -29,4 +29,4 @@ while youWin == False:
         youWin = True
 #Jackie Chan display when win
 if youWin ==  True:
-    boardc.printJackieChan()
+    board.printJackieChan()
