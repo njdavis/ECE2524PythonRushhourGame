@@ -1,6 +1,6 @@
 Documentation of Rush Hour Game
 ECE 2524 - Project 3
-By Noah Davis and Aparajita (Pia) Banerjee
+By Noah and Pia
 
 OBJECTIVE
 Similar to the classic arcade game, our Rush Hour game follows the same idea. The player must have a particular car pass through the 'Exit' 
