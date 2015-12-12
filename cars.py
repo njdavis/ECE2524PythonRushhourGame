@@ -6,7 +6,7 @@ def move(endpos, piece, pos, direction):
         distance = posDistance(piece, pos)
         endEndPos = endpos + distance
         #put old values into grid
-        for i in range (0,35):
+        for i in range (0,36):
                 if pos[i] == piece:
                         pos[i]= '  '
         #add new values into grid
@@ -20,6 +20,7 @@ def move(endpos, piece, pos, direction):
                 print ("Something is wrong")
         return pos
 
+#converts user data to machine data
 def readUser(ans):
     if ans == 'Aa':
         return 0
@@ -102,13 +103,13 @@ def posDistance(piece, pos):
     isBegin = True
     
     #scans the list for car pieces of the same type
-    for i in range(0, 35):
+    for i in range(0, 36):
         if piece == pos[i]:
             #end is only tracked once
             if isBegin == True:
                 isBegin = False
-                begin = i
-            end = i+1
+                begin = i 
+            end = i+1 
     
     #finds the distance between the beginning of the car and end
     #finds how large the car is
@@ -129,19 +130,28 @@ def correctMove (endpos, piece, pos):
     carLength = 0
     canMove = True
     
+    #finds the starting position and length of the car
     for i in range (0,35):
         if piece == pos[i]:
             startpos = i
             carLength = carLength +1
+
+    #finds the direction of the car
     direction = carDirection (piece, pos)
+
+    #if it is horizontal it can only move horizontally
+    #and if it is vertical it can only move vertically
     if direction == 'horizontal':
-        if endpos > (startpos+6):
+        if (endpos < horizontalMin(startpos)) or (endpos > horizontalMax(startpos)):
             print ("Piece can only move horizontal")
             canMove = False
     else:
+        #all elements in a row have the same remainder
         if (endpos%6) != (startpos%6):
             print ("Piece can only move vertical")
             canMove = False
+
+    #checks if other pieces are in the way
     if direction == 'horizontal':
         for i in range (startpos,(endpos+carLength) ):
             if (pos[i] == '  ') or (pos[i] == piece):
@@ -154,6 +164,8 @@ def correctMove (endpos, piece, pos):
                 canMove = canMove
             else:
                 canMove = False
+
+    #if no pieces are in the way the piece is moved
     if canMove == True:
         output = move(endpos, piece, pos, direction)
         return output
@@ -161,4 +173,34 @@ def correctMove (endpos, piece, pos):
         print ("Piece cannot move here!")
         return pos
 
+#checks that the piece is only moving horizontal
+def horizontalMax(startpos):
+   if 0 <= startpos <= 5:
+       return 5
+   elif 6 <= startpos <= 11:
+       return 11
+   elif 12 <= startpos <= 17:
+       return 16
+   elif 18 <= startpos <= 23:
+       return 23
+   elif 24 <= startpos <= 29:
+       return 29
+   else:
+       return 35
 
+def horizontalMin(startpos):
+   if 0 <= startpos <= 5:
+       return 0
+   elif 6 <= startpos <= 11:
+       return 6
+   elif 12 <= startpos <= 17:
+       return 12
+   elif 18 <= startpos <= 23:
+       return 18
+   elif 24 <= startpos <= 29:
+       return 24
+   else:
+       return 30
+
+    
+    
