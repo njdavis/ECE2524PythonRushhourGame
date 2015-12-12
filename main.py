@@ -11,7 +11,7 @@ board.printBoard(gameBoard)
 
 while youWin == False:
     piece = input("Please enter the car you would like to move (ex: 11): ")
-    endpos = input("Please enter the end position (of the top most piece or right most piece) piece of the car (ex: Aa): ")
+    endpos = input("Please enter the end position (of the top most piece or left most piece) piece of the car (ex: Aa): ")
 
     endpos = cars.readUser(endpos)
     direction = cars.carDirection(piece, gameBoard)
